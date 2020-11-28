@@ -1,0 +1,54 @@
+.nav__container_mobile-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 19px 19px;
+  box-sizing: border-box;
+  align-items: flex-start;
+  position: relative;
+  z-index: 3;
+  border-radius: 0 0 16px 16px;
+}
+.nav__container_mobile-menu-white {
+  background-color: white;
+}
+.nav__container_mobile-menu-black {
+  background-color: #1A1B22;
+}
+
+.nav__link {
+  margin-right: 32px;
+  padding-bottom: 23px;
+  text-decoration: none;
+  color: white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.nav__link-black {
+  color: black;
+}
+
+.nav__link_active {
+  border-bottom: 3px solid white;
+}
+.nav__link_active-black {
+  border-bottom: 3px solid black;
+}
+.nav__button {
+  height: 48px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+.nav__button-black {
+  color: black;
+  border: 1px solid black;
+}
+.nav__button-text{
+  margin-right: 8px;
+}
+.nav__button-content-container {
+  display: flex;
+}
