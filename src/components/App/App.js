@@ -17,7 +17,7 @@ import articles from '../../utils/articles';
 function App() {
   // для отображения компонентов менять стейты
   const { pathname } = useLocation();
-  const [isLoggedIn] = React.useState(true);
+  const [isLoggedIn] = React.useState(false);
   const [isFound] = React.useState(true);
   const [popupType, setPopupType] = React.useState(null);
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
@@ -50,6 +50,7 @@ function App() {
     }
   }
   function openPopup() {
+    setIsMenuOpen(false);
     switchPopupContent();
     setIsPopupOpen(true);
   }
@@ -85,7 +86,7 @@ function App() {
           switchContent={switchPopupContent}
         />;
       default:
-        return <div>error</div>;
+        return <></>;
     }
   }
 

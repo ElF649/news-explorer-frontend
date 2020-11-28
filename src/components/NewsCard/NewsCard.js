@@ -26,7 +26,7 @@ function NewsCard({
             статьи</p>
         </>
       }
-      <a className="news-card__img-link">
+      <a className="news-card__img-link" href={url}>
         <img
           className="news-card__img"
           src={urlToImage}

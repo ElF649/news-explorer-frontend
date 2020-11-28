@@ -71,7 +71,6 @@
   .footer__container {
     width: calc(100% - 2 * 19px);
     flex-direction: column-reverse;
-    min-width: 308px;
   }
 
   .footer__links {

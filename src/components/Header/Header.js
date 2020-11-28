@@ -38,7 +38,7 @@ function Header({
           className={isSavedCardsOpen ? 'header__logo header__logo-black' : 'header__logo'}
           navLink={true} title="Перейти на страницу с поиском"
           to='/'
-          value="NewsExplorer">NewsExplorer</Link>
+          >NewsExplorer</Link>
         {isMobile
           ? <button className="button header__button-mobile"
             onClick={openMobileMenu}>

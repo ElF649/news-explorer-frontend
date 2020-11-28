@@ -8,27 +8,36 @@ function Navigation({
   isLoggedIn, openPopup, isSavedCardsOpen, isMenuOpen, openMobileMenu,
 }) {
   function containerStyleController(x) {
-    if (isMenuOpen && isSavedCardsOpen) {
-      return `${x} ${x}_mobile-menu ${x}_mobile-menu-white`;
-    } if (isMenuOpen) {
-      return `${x} ${x}_mobile-menu ${x}_mobile-menu-black`;
-    } return `${x}`;
+    if (x === 'nav__container') {
+      if (isMenuOpen && isSavedCardsOpen) {
+        return `${x} ${x}_mobile-menu ${x}_mobile-menu-white`;
+      } if (isMenuOpen) {
+        return `${x} ${x}_mobile-menu ${x}_mobile-menu-black`;
+      } return `${x}`;
+    }
+    if (x === 'nav__link_active') {
+      if (isMenuOpen) {
+        return ' ';
+      } if (isSavedCardsOpen) {
+        return `${x} ${x}-black`;
+      } return `${x}`;
+    }
+    return `${x}`;
   }
   return (
     <div className={containerStyleController('nav__container')}>
       <NavLink
         className={isSavedCardsOpen ? 'nav__link nav__link-black' : 'nav__link'}
-        activeClassName={isSavedCardsOpen ? 'nav__link_active nav__link_active-black' : 'nav__link_active'}
+        activeClassName={containerStyleController('nav__link_active')}
         exact to='/'
         onClick={openMobileMenu}
-        value="Главная">Главная</NavLink>
+        >Главная</NavLink>
       {isLoggedIn
         ? <>
           <NavLink
             className={isSavedCardsOpen ? 'nav__link nav__link-black' : 'nav__link'}
-            activeClassName={isSavedCardsOpen ? 'nav__link_active nav__link_active-black' : 'nav__link_active'}
+            activeClassName={containerStyleController('nav__link_active')}
             to='/saved-cards'
-            value="Сохранённые статьи"
             onClick={openMobileMenu}
           >
             Сохранённые статьи
@@ -36,7 +45,7 @@ function Navigation({
           <button className={isSavedCardsOpen ? 'button nav__button nav__button-black' : 'button nav__button'}>
             <span className="nav__button-content-container">
               <span className="nav__button-text">Грета</span>
-              <img src={isSavedCardsOpen ? black : white} />
+              <img src={isSavedCardsOpen ? black : white} alt="logout" />
             </span>
           </button>
         </>
