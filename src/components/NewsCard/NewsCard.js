@@ -1,6 +1,14 @@
 import React from 'react';
 import './NewsCard.css';
 
+function getDate(publishedAt) {
+  const date = new Date(publishedAt);
+  return `${date.toLocaleString('ru', {
+    day: 'numeric',
+    month: 'long',
+  })}, ${date.getFullYear()}`;
+}
+
 function NewsCard({
   url,
   keyword,
@@ -81,7 +89,7 @@ function NewsCard({
         />
       </a>
       <div className="news-card__text-container">
-        <span className="news-card__date">{publishedAt}</span>
+        <span className="news-card__date">{getDate(publishedAt)}</span>
         <a className="news-card__title-link" href={url}>
           <h3 className="news-card__title">{title}</h3>
         </a>
