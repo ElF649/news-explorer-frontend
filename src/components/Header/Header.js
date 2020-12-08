@@ -8,7 +8,7 @@ import burgerBlack from '../../images/menu-black.svg';
 import Navigation from '../Navigation/Navigation';
 
 function Header({
-  isLoggedIn, openPopup, isSavedCardsOpen, isMenuOpen, openMobileMenu,
+  isLoggedIn, openPopup, isSavedCardsOpen, isMenuOpen, openMobileMenu, handleLogout,
 }) {
   const isMobile = useMediaQuery({ query: '(max-width: 760px)' });
   function containerStyleController(x) {
@@ -48,6 +48,7 @@ function Header({
             isLoggedIn={isLoggedIn}
             openPopup={openPopup}
             isSavedCardsOpen={isSavedCardsOpen}
+            handleLogout={handleLogout}
           />
         }
       </div>
@@ -58,6 +59,7 @@ function Header({
         openPopup={openPopup}
         isSavedCardsOpen={isSavedCardsOpen}
         openMobileMenu={openMobileMenu}
+        handleLogout={handleLogout}
       />
         <div className="header__overlay" onClick={openMobileMenu} />
       </>

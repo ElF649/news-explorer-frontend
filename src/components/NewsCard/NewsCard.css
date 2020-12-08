@@ -171,12 +171,20 @@
   background-image: url('../../images/trash.svg');
 }
 
+.news-card__button-deleted:hover {
+  background-image: url('../../images/trash-hover.svg');
+}
+
 .news-card__button-delete:hover {
   background-image: url('../../images/trash-hover.svg');
 }
 
 .news-card__button-save {
   background-image: url('../../images/save.svg');
+}
+
+.news-card__button-saved {
+  background-image: url('../../images/saved.svg');
 }
 
 .news-card__button-save:hover {
