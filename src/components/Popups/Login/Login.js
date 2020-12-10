@@ -36,7 +36,7 @@ function Login({ onSubmit, switchContent, handleLogin }) {
       <button
         className="button popup__submit-button"
         onClick={handleSubmit}
-        type="button"
+        type="submit"
         disabled={!isValid}
       >Войти</button>
       <span className="popup__link-holder">или <a className="popup__link" onClick={switchContent}>Зарегистрироваться</a></span>

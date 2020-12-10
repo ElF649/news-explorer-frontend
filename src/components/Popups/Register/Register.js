@@ -49,7 +49,7 @@ function Register({ switchContent, isUserExist, handleRegister }) {
       <button
         className="button popup__submit-button"
         onClick={handleSubmit}
-        type="button"
+        type="submit"
         disabled={!isValid}
       >Зарегистрироваться</button>
       <span className="popup__link-holder">или <a className="popup__link" onClick={switchContent}>Войти</a></span>

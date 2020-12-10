@@ -8,7 +8,7 @@ function Popup({ isOpen, onClose, children }) {
       <button
         className="popup__close-button"
         onClick={onClose}
-        type="button"
+        type="submit"
       />
         {children}
       </div>
