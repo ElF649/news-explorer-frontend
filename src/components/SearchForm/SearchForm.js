@@ -1,16 +1,19 @@
 import React from 'react';
 import './SearchForm.css';
 
-function SearchForm() {
+function SearchForm({ handleFindNewArticles, currentKeyword }) {
   const [value, setValue] = React.useState('');
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    setValue('');
+    handleFindNewArticles(value);
   }
   function handleSearchChange(evt) {
     setValue(evt.target.value);
   }
+  React.useEffect(() => {
+    setValue(currentKeyword);
+  }, []);
 
   return (
     <section className="search-form">
@@ -20,8 +23,7 @@ function SearchForm() {
           Находите самые свежие статьи на любую тему и сохраняйте в своём личном
           кабинете.
          </p>
-
-        <div className="search-form__input-container">
+        <form className="search-form__input-container">
           <input
             title="Введите запрос"
             type="text"
@@ -38,7 +40,7 @@ function SearchForm() {
             onClick={handleSubmit}>
             Искать
           </button>
-        </div>
+        </form>
       </div>
     </section>
   );

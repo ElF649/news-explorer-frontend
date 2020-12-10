@@ -2,12 +2,13 @@ import React from 'react';
 import useValidation from '../../../utils/useValidation';
 import FormInput from '../../FormInput/FormInput';
 
-function Register({ switchContent, isUserExist }) {
+function Register({ switchContent, isUserExist, handleRegister }) {
   const {
     values, errors, handleChange, isValid,
   } = useValidation();
   function handleSubmit(evt) {
     evt.preventDefault();
+    handleRegister(values.name, values.email, values.password);
   }
   return (
     <form className="popup__form">
@@ -48,7 +49,7 @@ function Register({ switchContent, isUserExist }) {
       <button
         className="button popup__submit-button"
         onClick={handleSubmit}
-        type="button"
+        type="submit"
         disabled={!isValid}
       >Зарегистрироваться</button>
       <span className="popup__link-holder">или <a className="popup__link" onClick={switchContent}>Войти</a></span>

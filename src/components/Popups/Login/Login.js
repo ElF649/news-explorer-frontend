@@ -2,12 +2,13 @@ import React from 'react';
 import useValidation from '../../../utils/useValidation';
 import FormInput from '../../FormInput/FormInput';
 
-function Login({ onSubmit, switchContent }) {
+function Login({ onSubmit, switchContent, handleLogin }) {
   const {
     values, errors, handleChange, isValid,
   } = useValidation();
   function handleSubmit(evt) {
     evt.preventDefault();
+    handleLogin(values.email, values.password);
   }
   return (
     <form onSubmit={onSubmit} className="popup__form">
@@ -35,7 +36,7 @@ function Login({ onSubmit, switchContent }) {
       <button
         className="button popup__submit-button"
         onClick={handleSubmit}
-        type="button"
+        type="submit"
         disabled={!isValid}
       >Войти</button>
       <span className="popup__link-holder">или <a className="popup__link" onClick={switchContent}>Зарегистрироваться</a></span>
