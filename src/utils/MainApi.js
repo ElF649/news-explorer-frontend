@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://www.api.dna.students.nomoreparties.space';
 
 function getResponseData(res) {
   console.log(res);
@@ -23,18 +23,14 @@ export const register = (name, email, password) => fetch(`${BASE_URL}/signup`, {
   });
 export const authorize = (email, password) => fetch(`${BASE_URL}/signin`, {
   method: 'POST',
+  credentials: 'include',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
   },
-  credentials: 'include',
   body: JSON.stringify({ email, password }),
 })
-  .then(((res) => getResponseData(res)))
-  .then((data) => {
-    localStorage.setItem('jwt', data.token);
-    return data;
-  });
+  .then(((res) => getResponseData(res)));
 
 export const getUserInfo = (token) => fetch(`${BASE_URL}/users/me`, {
   method: 'GET',
@@ -59,10 +55,7 @@ export const getSavedArticles = () => fetch(`${BASE_URL}/articles`, {
   credentials: 'include',
 })
   .then((res) => getResponseData(res))
-  .then((res) => {
-    console.log(res);
-    return res;
-  });
+  .then((res) => res);
 
 export const postArticle = (keyword, title, text, date, source, link, image) => fetch(`${BASE_URL}/articles`, {
   method: 'POST',

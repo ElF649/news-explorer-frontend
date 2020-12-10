@@ -41,6 +41,7 @@ function App() {
 
   function handleTokenCheck() {
     const jwt = localStorage.getItem('jwt');
+    console.log(jwt);
     if (jwt) {
       getUserInfo(jwt)
         .then((res) => {
@@ -93,6 +94,12 @@ function App() {
 
   function handleLogin(email, password) {
     authorize(email, password)
+      .then((data) => {
+        console.log(data);
+        if (data.token) {
+          localStorage.setItem('jwt', data.token);
+        }
+      })
       .then(() => {
         handleTokenCheck();
         closePopup();
@@ -109,7 +116,7 @@ function App() {
     setReceivedArticles([]);
     setSavedArticles([]);
     setCurrentKeyword('');
-    setCurrentUser(null);
+    setCurrentUser('');
     history.push('/');
   }
 
@@ -145,7 +152,6 @@ function App() {
         .then((data) => {
           setSavedArticles(data.articles);
         });
-      console.log(savedArticles);
     })
       .catch((err) => {
         console.log(err);

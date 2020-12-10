@@ -4,8 +4,6 @@ import NewsCard from '../NewsCard/NewsCard';
 import './NewsCardList.css';
 
 function sliceArticles(articles, rowArticles) {
-  console.log(articles.slice(0, 3 * rowArticles).length);
-  console.log(articles.length);
   return articles.slice(0, 3 * rowArticles);
 }
 

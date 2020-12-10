@@ -44,7 +44,6 @@ function NewsCard({
   }
 
   function handleSave() {
-    console.log(isSaved);
     if (isSaved) {
       handleDelete();
     } else {
